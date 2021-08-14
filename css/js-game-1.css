@@ -1,0 +1,53 @@
+/*To get rid of default web page styling*/
+/**{*/
+/*    padding: 0;*/
+/*    margin: 0;*/
+/*}*/
+
+/*adds black border to the area the game will be played*/
+#game{
+    width: 500px;
+    height: 200px;
+    border: 1px solid black;
+}
+
+/*size of the character and position of character */
+#character{
+    width: 20px;
+    height: 50px;
+    background-color: red;
+    position: relative;
+    top: 150px; /*150 because character has a height of 50px and #game has a height of 200px*/
+}
+
+/*new class that will be added to the character and removed with javaScript which will make it jump*/
+.animate{
+    animation: jump 500ms infinite;/*jumps for 500ms*/
+}
+
+/**/
+@keyframes jump {
+    0%{top: 150px}/*starts at the bottom*/
+    30%{top: 100px}/*jumps to the top*/
+    70%{top: 100px}/*hovers for a little bit*/
+    100%{top: 150px}/*comes back to the bottom*/
+}
+
+/*size of the block and position of character*/
+#block{
+    width: 20px;
+    height: 20px;
+    background-color: blue;
+    position: relative;
+    top: 130px;/*move the block to the bottom */
+    left: 480px;/*move the block to the  left */
+    animation: block 1s infinite linear; /*controls how long it will take the block to move across the screen added infinite so that it loops and added linear so that it looks smoother*/
+}
+
+/*animation for the block to move*/
+@keyframes block {
+    0%{left: 480px} /*controls were the block starts*/
+    100%{left: -40px} /*controls were the block needs to go/stop*/
+}
+
+}
