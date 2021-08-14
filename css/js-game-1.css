@@ -22,7 +22,7 @@
 
 /*new class that will be added to the character and removed with javaScript which will make it jump*/
 .animate{
-    animation: jump 500ms infinite;/*jumps for 500ms*/
+    animation: jump 500ms ;/*jumps for 500ms*/
 }
 
 /**/
