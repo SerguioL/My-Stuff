@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Movies posters</title>
+</head>
+<body>
+
+
+<div class="container">
+
+    <h1>Movie Info</h1>
+    <form id="movieForm">
+        <div>
+            <label for="movie">Movie Name</label>
+            <input type="text" id="movie" placeholder="Movie...">
+        </div>
+        <div>
+            <button>
+                Search Movie
+            </button>
+        </div>
+
+
+    </form>
+
+    <div id="result"></div>
+
+</div>
+
+<script src="Movie-Posters.html"></script>
+<script src="js/jQuery.js"></script>
+
+<script>
+
+    var apikey = "60ab4858";
+
+
+    $(document).ready(function(){
+        $("#movieForm").submit(function (e){
+           e.preventDefault();//prevents the auto submitting the form
+
+            var movie = $("#movie").val();
+
+            var result = "";
+
+            var url = `http://www.omdbapi.com/?apikey=${apikey}`;
+
+            $.ajax({
+                method: "GET",
+                url: `${url}&t=${movie}`,
+                success:function(data){
+                    console.log(data)
+
+                    result =`
+
+                    <img width="200px" height="200px" src="${data.Poster}"/>
+                    <h1>${data.Title}</h1>
+                    <h1>${data.Genre}</h1>
+                    <h1>${data.Actors}</h1>
+                    <h1>${data.Plot}</h1>
+
+                    `;
+
+                    $("#result").html(result);
+
+                }
+            })
+
+        });
+
+    });
+
+</script>
+
+</body>
+</html>
