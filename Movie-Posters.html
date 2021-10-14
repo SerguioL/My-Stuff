@@ -33,7 +33,7 @@
 
 <script>
 
-    var apikey = "60ab4858";
+    var apikey = "addApikey";
 
 
     $(document).ready(function(){
@@ -46,30 +46,55 @@
 
             var url = `http://www.omdbapi.com/?apikey=${apikey}`;
 
-            $.ajax({
-                method: "GET",
-                url: `${url}&t=${movie}`,
-                success:function(data){
-                    console.log(data)
+           fetch(`${url}&t=${movie}`)
+            .then(res => res.json())
+            .then(data =>{
+                console.log(data)
 
-                    result =`
+                result =`
 
-                    <img width="200px" height="200px" src="${data.Poster}"/>
+                <img width="200px" height="200px" src="${data.Poster}"/>
                     <h1>${data.Title}</h1>
                     <h1>${data.Genre}</h1>
                     <h1>${data.Actors}</h1>
                     <h1>${data.Plot}</h1>
 
-                    `;
+                `;
 
-                    $("#result").html(result);
-
-                }
+                $("#result").html(result);
             })
 
         });
 
-    });
+    })
+
+
+    // $.ajax({
+    //     method: "GET",
+    //     url: `${url}&t=${movie}`,
+    //     success:function(data){
+    //         console.log(data)
+    //
+    //         result =`
+    //
+    //                 <img width="200px" height="200px" src="${data.Poster}"/>
+    //                 <h1>${data.Title}</h1>
+    //                 <h1>${data.Genre}</h1>
+    //                 <h1>${data.Actors}</h1>
+    //                 <h1>${data.Plot}</h1>
+    //
+    //                 `;
+    //
+    //         $("#result").html(result);
+    //
+    //     }
+    // })
+
+//
+
+
+
+        .catch(console.error);
 
 </script>
 
