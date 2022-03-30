@@ -7,7 +7,7 @@
 
         .main-container{
             position: relative;
-            width: 250px;
+            width: 850px;
             height: 320px;
         /*sets the size or the card and holds the front and back of the card*/
         }
@@ -67,17 +67,26 @@
         <div class="the-front">
             The Front
 
-        </div>
+        </div>f
 
         <div class="the-back">
             The Back
 
-        </div>
+        </div>b
 
-    </div>
+    </div>c
 
-</div>
+</div>ma
 
+<script>
+
+    const card = document.querySelector(".card__inner");
+
+    card.addEventListener("click", function (e) {
+        card.classList.toggle('the-card');
+    });
+
+</script>
 
 </body>
 </html>
